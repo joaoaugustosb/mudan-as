@@ -1,7 +1,10 @@
-import React from "react";
-import "./ComponenteTabela.css";
+import React from "react"
+import { useOutletContext } from "react-router-dom"
+import "./Tabela.css"
 
-export default function ComponenteTabela({produtos, editar, deletar}) {
+export default function Tabela(){
+  const { products, editProduct, deleteProduct } = useOutletContext()
+
   return (
     <div>
       <h2>Tabela de Produtos</h2>
@@ -16,20 +19,20 @@ export default function ComponenteTabela({produtos, editar, deletar}) {
           </tr>
         </thead>
         <tbody>
-          {produtos.map((product, index) => (
-            <tr key={index}>
+          {products.map((product) => (
+            <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>{product.stock}</td>
               <td className="actions">
-                <button onClick={() => editar(product.id)}>Editar</button>
-                <button onClick={() => deletar(product.id)}>Excluir</button>
+                <button onClick={() => editProduct(product.id)}>Editar</button>
+                <button onClick={() => deleteProduct(product.id)}>Excluir</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
+  )
 }

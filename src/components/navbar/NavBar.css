@@ -1,0 +1,47 @@
+.active {
+    color: darkblue;
+    font-weight: 900;
+}
+
+.navbar {
+    background-color: darkblue;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-item a,
+  .nav-item button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .nav-item a:hover,
+  .nav-item button:hover {
+    background-color: #555;
+  }
+  
+  .nav-item a.active {
+    background-color: blue;
+  }
+  
+  .nav-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .nav-item button:hover {
+    background-color: #555;
+  }
+  

@@ -1,34 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
+import Tabela from './routes/tabela/Tabela.jsx'
+import Formulario from './routes/formulario/Formulario.jsx'
 import './index.css'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import Products from './routes/Products.jsx'
-import ErrorPage from './routes/ErrorPage.jsx'
-import Home from './routes/Home.jsx'
-import EditForm from './routes/EditForm.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Tabela />
       },
       {
-        path: '/products',
-        element: <Products />
-      },
-      {
-        path: '/products/:id/info',
-        element: <EditForm />
+        path: 'cadastrar',
+        element: <Formulario />
       }
     ]
   }
 ])
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
