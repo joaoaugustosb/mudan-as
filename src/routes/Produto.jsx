@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import "./Tabela.css"
+import "./Routes.css"
 
-export default function Tabela(){
+export default function Produto(){
+  
   const [products, setProducts] = useState([])
 
   const url = 'http://localhost:3000/products'
@@ -33,8 +34,8 @@ export default function Tabela(){
 
   return (
     <div>
-      <button><Link></Link>Cadastrar Produto</button>
-      <h2>Tabela de Produtos</h2>
+      <button><Link to={`/cadastrar-produto`}>Cadastrar Produto</Link></button>
+      <h2>Cadastro de Produtos</h2>
       <table>
         <thead>
           <tr>

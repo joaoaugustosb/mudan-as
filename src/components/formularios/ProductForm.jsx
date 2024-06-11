@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
-import "./Formulario.css"
+import "./Form.css"
 
-export default function Formulario(){ 
+export default function ProductForm(){ 
+
   const [name, setName] = useState("")
   const [price, setPrice] = useState("")
   const [stock, setStock] = useState("")
@@ -42,7 +43,7 @@ export default function Formulario(){
     try {
       const res = await fetch(save_url, saveRequestParams)
       if(res.status === 201 || res.status === 200) {
-      navigate('/')
+      navigate('/produtos')
     }
     } catch (error) {
       console.log(error.message)
@@ -52,14 +53,14 @@ export default function Formulario(){
 
   return (
     <div className="container">
-      <h2>Cadastro de Produto</h2>
+      <h2>Cadastrar Produto</h2>
       <form onSubmit={saveProduct}>
         <label htmlFor="name">Nome:</label>
         <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
         <label htmlFor="price">Preço:</label>
-        <input type="number" name="price" value={price} min={0} onChange={(e) => setPrice(e.target.value)} required />
+        <input type="number" name="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
         <label htmlFor="stock">Estoque:</label>
-        <input type="number" name="stock" value={stock} min={0} onChange={(e) => setStock(e.target.value)} required />
+        <input type="number" name="stock" value={stock} onChange={(e) => setStock(e.target.value)} required />
         <input type="submit" value="Cadastrar" />
       </form>
       {error && <p>{error}</p>}

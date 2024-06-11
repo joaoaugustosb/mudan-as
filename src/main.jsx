@@ -2,8 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
-import Tabela from './routes/tabela/Tabela.jsx'
-import Formulario from './routes/formulario/Formulario.jsx'
+import Produto from './routes/Produto.jsx'
+import ProductForm from './components/formularios/ProductForm.jsx'
+import Usuario from './routes/Usuário.jsx'
+import UserForm from './components/formularios/UserForm.jsx'
+import Servico from './routes/Serviço.jsx'
+import ServiceForm from './components/formularios/ServiceForm.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -12,16 +16,40 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <Tabela />
+        path: '/produtos',
+        element: <Produto />
       },
       {
         path: '/cadastrar-produto',
-        element: <Formulario />
+        element: <ProductForm/>
       },
       {
         path: '/editar-produto/:id',
-        element: <Formulario />
+        element: <ProductForm />
+      },
+      {
+        path: '/usuarios',
+        element: <Usuario />
+      },
+      {
+        path: '/cadastrar-usuario',
+        element: <UserForm />
+      },
+      {
+        path: '/editar-usuario/:id',
+        element: <UserForm />
+      },
+      {
+        path: '/servicos',
+        element: <Servico />
+      },
+      {
+        path: '/cadastrar-servico',
+        element: <ServiceForm />
+      },
+      {
+        path: '/editar-servico/:id',
+        element: <ServiceForm />
       }
     ]
   }
