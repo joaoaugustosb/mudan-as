@@ -7,11 +7,11 @@ export default function NavBar(){
     <div className="navbar">
       <span className="nav-item">
         <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
-          Home
+          Produtos
         </NavLink>
       </span>
       <span className="nav-item">
-        <NavLink to="/cadastrar" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/cadastrar-produto" className={({ isActive }) => (isActive ? 'active' : '')}>
           Cadastrar
         </NavLink>
       </span>

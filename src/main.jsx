@@ -16,7 +16,11 @@ const router = createBrowserRouter([
         element: <Tabela />
       },
       {
-        path: 'cadastrar',
+        path: '/cadastrar-produto',
+        element: <Formulario />
+      },
+      {
+        path: '/editar-produto/:id',
         element: <Formulario />
       }
     ]

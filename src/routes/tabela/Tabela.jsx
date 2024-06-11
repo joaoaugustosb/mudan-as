@@ -1,12 +1,39 @@
-import React from "react"
-import { useOutletContext } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import "./Tabela.css"
 
 export default function Tabela(){
-  const { products, editProduct, deleteProduct } = useOutletContext()
+  const [products, setProducts] = useState([])
+
+  const url = 'http://localhost:3000/products'
+
+  useEffect(() => {
+    const getProductsList = async() => {
+      const res = await fetch(url)
+      const data = await res.json()
+      setProducts(data)
+      console.log(data)
+    }
+
+    getProductsList()
+
+  }, [])
+
+  const deleteProduct = async (id) => {
+    const res = await fetch(url + `/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      },
+    })
+
+    const deletedProduct = await res.json()
+    setProducts(products.filter(prod => prod.id !== deletedProduct.id))
+  }
 
   return (
     <div>
+      <button><Link></Link>Cadastrar Produto</button>
       <h2>Tabela de Produtos</h2>
       <table>
         <thead>
@@ -26,7 +53,7 @@ export default function Tabela(){
               <td>{product.price}</td>
               <td>{product.stock}</td>
               <td className="actions">
-                <button onClick={() => editProduct(product.id)}>Editar</button>
+                <button><Link to={`/editar-produto/${product.id}`}>Editar</Link></button>
                 <button onClick={() => deleteProduct(product.id)}>Excluir</button>
               </td>
             </tr>
