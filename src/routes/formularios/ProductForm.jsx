@@ -4,9 +4,11 @@ import "./Form.css"
 
 export default function ProductForm(){ 
 
-  const [name, setName] = useState("")
+  const [type, setType] = useState("")
+  const [brand, setBrand] = useState("")
+  const [model, setModel] = useState("")
+  const [year, setYear] = useState("")
   const [price, setPrice] = useState("")
-  const [stock, setStock] = useState("")
   const [error, setError] = useState(null)
   const [edit, setEdit] = useState(false)
   const navigate = useNavigate()
@@ -24,9 +26,11 @@ export default function ProductForm(){
   const getProductById = async (id) => {
     const res = await fetch(url + `/${id}`)
     const data = await res.json()
-    setName(data.name)
+    setType(data.type)
+    setBrand(data.brand)
+    setModel(data.model)
+    setYear(data.year)
     setPrice(data.price)
-    setStock(data.stock)
     setEdit(true)
   }
 
@@ -37,13 +41,13 @@ export default function ProductForm(){
       headers: {
         "content-type": "application/json"
       },
-      body: JSON.stringify({ name, price, stock })
+      body: JSON.stringify({ type, brand, model, year, price })
     }
     const save_url = edit ? url + `/${id}` : url
     try {
       const res = await fetch(save_url, saveRequestParams)
       if(res.status === 201 || res.status === 200) {
-      navigate('/produtos')
+      navigate('/app/produtos')
     }
     } catch (error) {
       console.log(error.message)
@@ -53,14 +57,21 @@ export default function ProductForm(){
 
   return (
     <div className="container">
-      <h2>Cadastrar Produto</h2>
+      <h2 className="form-title">Cadastrar Veículo</h2>
       <form onSubmit={saveProduct}>
-        <label htmlFor="name">Nome:</label>
-        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
-        <label htmlFor="price">Preço:</label>
+        <label htmlFor="type">Tipo de Veículo:</label>
+        <select name="type" value={type} onChange={(e) => setType(e.target.value)} required>
+          <option value="opcao1">Carro</option>
+          <option value="opcao2">Moto</option>
+        </select>
+        <label htmlFor="brand">Marca:</label>
+        <input type="text" name="brand" value={brand} onChange={(e) => setBrand(e.target.value)} required />
+        <label htmlFor="model">Modelo:</label>
+        <input type="text" name="model" value={model} onChange={(e) => setModel(e.target.value)} required />
+        <label htmlFor="year">Ano:</label>
+        <input type="number" name="year" value={year} onChange={(e) => setYear(e.target.value)} required />
+        <label htmlFor="price">Tabela Fipe (R$):</label>
         <input type="number" name="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
-        <label htmlFor="stock">Estoque:</label>
-        <input type="number" name="stock" value={stock} onChange={(e) => setStock(e.target.value)} required />
         <input type="submit" value="Cadastrar" />
       </form>
       {error && <p>{error}</p>}

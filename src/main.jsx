@@ -2,53 +2,58 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
-import Produto from './routes/Produto.jsx'
-import ProductForm from './components/formularios/ProductForm.jsx'
-import Usuario from './routes/Usuário.jsx'
-import UserForm from './components/formularios/UserForm.jsx'
-import Servico from './routes/Serviço.jsx'
-import ServiceForm from './components/formularios/ServiceForm.jsx'
+import Produto from './routes/tabelas/Produto.jsx'
+import ProductForm from './routes/formularios/ProductForm.jsx'
+import Usuario from './routes/tabelas/Usuário.jsx'
+import UserForm from './routes/formularios/UserForm.jsx'
+import Servico from './routes/tabelas/Serviço.jsx'
+import ServiceForm from './routes/formularios/ServiceForm.jsx'
+import Login from './components/login/Login.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/app',
     element: <App />,
     children: [
       {
-        path: '/produtos',
+        path: '/app/produtos',
         element: <Produto />
       },
       {
-        path: '/cadastrar-produto',
+        path: '/app/cadastrar-produto',
         element: <ProductForm/>
       },
       {
-        path: '/editar-produto/:id',
+        path: '/app/editar-produto/:id',
         element: <ProductForm />
       },
       {
-        path: '/usuarios',
+        path: '/app/usuarios',
         element: <Usuario />
       },
       {
-        path: '/cadastrar-usuario',
+        path: '/app/cadastrar-usuario',
         element: <UserForm />
       },
       {
-        path: '/editar-usuario/:id',
+        path: '/app/editar-usuario/:id',
         element: <UserForm />
       },
       {
-        path: '/servicos',
+        path: '/app/servicos',
         element: <Servico />
       },
       {
-        path: '/cadastrar-servico',
+        path: '/app/cadastrar-servico',
         element: <ServiceForm />
       },
       {
-        path: '/editar-servico/:id',
+        path: '/app/editar-servico/:id',
         element: <ServiceForm />
       }
     ]

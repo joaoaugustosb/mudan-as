@@ -4,11 +4,11 @@ import "./Form.css"
 
 export default function UserForm(){ 
 
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
   const [age, setAge] = useState("")
-  const [gender, setGender] = useState("")
   const [error, setError] = useState(null)
   const [edit, setEdit] = useState(false)
   const navigate = useNavigate()
@@ -26,11 +26,11 @@ export default function UserForm(){
   const getUserById = async (id) => {
     const res = await fetch(url + `/${id}`)
     const data = await res.json()
+    setUsername(data.username)
+    setPassword(data.password)
     setName(data.name)
     setEmail(data.email)
-    setAddress(data.address)
     setAge(data.age)
-    setGender(data.gender)
     setEdit(true)
   }
 
@@ -41,13 +41,13 @@ export default function UserForm(){
       headers: {
         "content-type": "application/json"
       },
-      body: JSON.stringify({ name, email, address, age, gender })
+      body: JSON.stringify({ username, password, name, email, age })
     }
     const save_url = edit ? url + `/${id}` : url
     try {
       const res = await fetch(save_url, saveRequestParams)
       if(res.status === 201 || res.status === 200) {
-      navigate('/usuarios')
+      navigate('/app/usuarios')
     }
     } catch (error) {
       console.log(error.message)
@@ -57,18 +57,18 @@ export default function UserForm(){
 
   return (
     <div className="container">
-      <h2>Cadastrar Usuário</h2>
+      <h2 className="form-title">Cadastrar Usuário</h2>
       <form onSubmit={saveUser}>
+        <label htmlFor="username">Usuário:</label>
+        <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+        <label htmlFor="password">Senha:</label>
+        <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <label htmlFor="name">Nome:</label>
         <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
         <label htmlFor="email">E-mail:</label>
-        <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <label htmlFor="address">Endereço:</label>
-        <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} required />
+        <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <label htmlFor="age">Idade:</label>
         <input type="number" name="age" value={age} onChange={(e) => setAge(e.target.value)} required />
-        <label htmlFor="gender">Sexo:</label>
-        <input type="text" name="gender" value={gender} onChange={(e) => setGender(e.target.value)} required />
         <input type="submit" value="Cadastrar" />
       </form>
       {error && <p>{error}</p>}

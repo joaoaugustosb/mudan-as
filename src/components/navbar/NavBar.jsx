@@ -6,17 +6,17 @@ export default function NavBar(){
   return (
     <div className="navbar">
       <span className="nav-item">
-        <NavLink to="/produtos" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/app/produtos" className={({ isActive }) => (isActive ? 'active' : '')}>
           Produtos
         </NavLink>
       </span>
       <span className="nav-item">
-        <NavLink to="/usuarios" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/app/usuarios" className={({ isActive }) => (isActive ? 'active' : '')}>
           Usuários
         </NavLink>
       </span>
       <span className="nav-item">
-        <NavLink to="/servicos" className={({ isActive }) => (isActive ? 'active' : '')}>
+        <NavLink to="/app/servicos" className={({ isActive }) => (isActive ? 'active' : '')}>
           Serviços
         </NavLink>
       </span>

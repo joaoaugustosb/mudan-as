@@ -33,16 +33,18 @@ export default function Servico(){
   }
 
   return (
-    <div>
-      <button><Link to={`/cadastrar-servico`}>Cadastrar Serviço</Link></button>
-      <h2>Cadastro de Serviços</h2>
+    <div className="container">
+      <button><Link to="/app/cadastrar-servico" className="cadastrar-button">Cadastrar Serviço</Link></button>
+      <h2 className="table-title">Cadastro de Serviços</h2>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Lugar</th>
+            <th>Tipo de Serviço</th>
+            <th>Estado</th>
+            <th>Cidade</th>
             <th>Data</th>
-            <th>Valor</th>
+            <th>Valor (R$)</th>
             <th style={{ textAlign: "center" }}>Ações</th>
           </tr>
         </thead>
@@ -50,12 +52,14 @@ export default function Servico(){
           {services.map((service) => (
             <tr key={service.id}>
               <td>{service.id}</td>
-              <td>{service.place}</td>
+              <td>{service.type}</td>
+              <td>{service.state}</td>
+              <td>{service.city}</td>
               <td>{service.date}</td>
               <td>{service.value}</td>
               <td className="actions">
-                <button><Link to={`/editar-servico/${service.id}`}>Editar</Link></button>
-                <button onClick={() => deleteService(service.id)}>Excluir</button>
+                <button className="table-edit"><Link to={`/app/editar-servico/${service.id}`} className="table-edit-link">Editar</Link></button>
+                <button onClick={() => deleteService(service.id)} className="table-delete">Excluir</button>
               </td>
             </tr>
           ))}

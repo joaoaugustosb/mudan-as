@@ -33,16 +33,18 @@ export default function Produto(){
   }
 
   return (
-    <div>
-      <button><Link to={`/cadastrar-produto`}>Cadastrar Produto</Link></button>
-      <h2>Cadastro de Produtos</h2>
+    <div className="container">
+      <button><Link to="/app/cadastrar-produto" className="cadastrar-button">Cadastrar Veículo</Link></button>
+      <h2 className="table-title">Cadastro de Veículos</h2>
       <table>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nome</th>
-            <th>Preço (R$)</th>
-            <th>Estoque (Kg)</th>
+            <th>Tipo de Veículo</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Tabela Fipe (R$)</th>
             <th style={{ textAlign: "center" }}>Ações</th>
           </tr>
         </thead>
@@ -50,12 +52,14 @@ export default function Produto(){
           {products.map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
-              <td>{product.name}</td>
+              <td>{product.type}</td>
+              <td>{product.brand}</td>
+              <td>{product.model}</td>
+              <td>{product.year}</td>
               <td>{product.price}</td>
-              <td>{product.stock}</td>
               <td className="actions">
-                <button><Link to={`/editar-produto/${product.id}`}>Editar</Link></button>
-                <button onClick={() => deleteProduct(product.id)}>Excluir</button>
+                <button className="table-edit"><Link to={`/app/editar-produto/${product.id}`} className="table-edit-link">Editar</Link></button>
+                <button onClick={() => deleteProduct(product.id)} className="table-delete">Excluir</button>
               </td>
             </tr>
           ))}

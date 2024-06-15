@@ -4,7 +4,9 @@ import "./Form.css"
 
 export default function ServiceForm(){ 
 
-  const [place, setPlace] = useState("")
+  const [type, setType] = useState("")
+  const [state, setState] = useState("")
+  const [city, setCity] = useState("")
   const [date, setDate] = useState("")
   const [value, setValue] = useState("")
   const [error, setError] = useState(null)
@@ -24,7 +26,9 @@ export default function ServiceForm(){
   const getServiceById = async (id) => {
     const res = await fetch(url + `/${id}`)
     const data = await res.json()
-    setPlace(data.place)
+    setType(data.type)
+    setState(data.state)
+    setCity(data.city)
     setDate(data.date)
     setValue(data.value)
     setEdit(true)
@@ -37,13 +41,13 @@ export default function ServiceForm(){
       headers: {
         "content-type": "application/json"
       },
-      body: JSON.stringify({ place, date, value })
+      body: JSON.stringify({ type, state, city, date, value })
     }
     const save_url = edit ? url + `/${id}` : url
     try {
       const res = await fetch(save_url, saveRequestParams)
       if(res.status === 201 || res.status === 200) {
-      navigate('/servicos')
+      navigate('/app/servicos')
     }
     } catch (error) {
       console.log(error.message)
@@ -53,13 +57,24 @@ export default function ServiceForm(){
 
   return (
     <div className="container">
-      <h2>Cadastrar Serviço</h2>
+      <h2 className="form-title">Cadastrar Serviço</h2>
       <form onSubmit={saveService}>
-        <label htmlFor="place">Lugar:</label>
-        <input type="text" name="place" value={place} onChange={(e) => setPlace(e.target.value)} required />
+        <label htmlFor="type">Tipo de Serviço:</label>
+        <select name="type" value={type} onChange={(e) => setType(e.target.value)} required>
+          <option value="opcao1">Aluguel</option>
+          <option value="opcao2">Venda</option>
+        </select>
+        <label htmlFor="state">Estado:</label>
+        <select name="state" value={state} onChange={(e) => setState(e.target.value)} required>
+          <option value="opcao1">Paraná</option>
+          <option value="opcao2">Santa Catarina</option>
+          <option value="opcao3">Rio Grande do Sul</option>
+        </select>
+        <label htmlFor="city">Cidade:</label>
+        <input type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} required />
         <label htmlFor="date">Data:</label>
-        <input type="number" name="date" value={date} onChange={(e) => setDate(e.target.value)} required />
-        <label htmlFor="value">Valor:</label>
+        <input type="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+        <label htmlFor="value">Valor (R$):</label>
         <input type="number" name="value" value={value} onChange={(e) => setValue(e.target.value)} required />
         <input type="submit" value="Cadastrar" />
       </form>
