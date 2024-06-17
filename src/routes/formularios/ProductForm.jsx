@@ -61,8 +61,9 @@ export default function ProductForm(){
       <form onSubmit={saveProduct}>
         <label htmlFor="type">Tipo de Veículo:</label>
         <select name="type" value={type} onChange={(e) => setType(e.target.value)} required>
-          <option value="opcao1">Carro</option>
-          <option value="opcao2">Moto</option>
+          <option value="" hidden>Selecione</option>
+          <option value="Carro">Carro</option>
+          <option value="Moto">Moto</option>
         </select>
         <label htmlFor="brand">Marca:</label>
         <input type="text" name="brand" value={brand} onChange={(e) => setBrand(e.target.value)} required />

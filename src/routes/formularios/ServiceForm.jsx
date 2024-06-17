@@ -61,14 +61,16 @@ export default function ServiceForm(){
       <form onSubmit={saveService}>
         <label htmlFor="type">Tipo de Serviço:</label>
         <select name="type" value={type} onChange={(e) => setType(e.target.value)} required>
-          <option value="opcao1">Aluguel</option>
-          <option value="opcao2">Venda</option>
+          <option value="" hidden>Selecione</option>
+          <option value="Aluguel">Aluguel</option>
+          <option value="Venda">Venda</option>
         </select>
         <label htmlFor="state">Estado:</label>
         <select name="state" value={state} onChange={(e) => setState(e.target.value)} required>
-          <option value="opcao1">Paraná</option>
-          <option value="opcao2">Santa Catarina</option>
-          <option value="opcao3">Rio Grande do Sul</option>
+          <option value="" hidden>Selecione</option>
+          <option value="Paraná">Paraná</option>
+          <option value="Santa Catarina">Santa Catarina</option>
+          <option value="Rio Grande do Sul">Rio Grande do Sul</option>
         </select>
         <label htmlFor="city">Cidade:</label>
         <input type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} required />
