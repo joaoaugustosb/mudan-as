@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import "./Routes.css"
+import "./Table.css"
 
 export default function Servico(){
 
