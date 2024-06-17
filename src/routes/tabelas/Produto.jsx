@@ -59,7 +59,7 @@ export default function Produto(){
               <td>{product.price}</td>
               <td className="actions">
                 <button className="table-edit"><Link to={`/app/editar-produto/${product.id}`} className="table-edit-link">Editar</Link></button>
-                <button onClick={() => deleteProduct(product.id)} className="table-delete">Excluir</button>
+                <button className="table-delete" onClick={() => deleteProduct(product.id)}>Excluir</button>
               </td>
             </tr>
           ))}
