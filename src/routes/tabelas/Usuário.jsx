@@ -33,8 +33,8 @@ export default function Usuario(){
   }
 
   return (
-    <div className="container">
-      <button><Link to="/app/cadastrar-usuario" className="cadastrar-button">Cadastrar Usuário</Link></button>
+    <div className="table-container">
+      <button className="cadastrar-button"><Link to="/app/cadastrar-usuario" className="cadastrar-button-link">Cadastrar Usuário</Link></button>
       <h2 className="table-title">Cadastro de Usuários</h2>
       <table>
         <thead>
@@ -55,7 +55,7 @@ export default function Usuario(){
               <td>{user.age}</td>
               <td className="actions">
                 <button className="table-edit"><Link to={`/app/editar-usuario/${user.id}`} className="table-edit-link">Editar</Link></button>
-                <button onClick={() => deleteUser(user.id)} className="table-delete">Excluir</button>
+                <button className="table-delete" onClick={() => deleteUser(user.id)}>Excluir</button>
               </td>
             </tr>
           ))}

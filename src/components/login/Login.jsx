@@ -31,7 +31,7 @@ export default function Login(){
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2 className="login-title">Fazer Login</h2>
       {error && <p className="error-message smaller">{error}</p>}
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
@@ -54,7 +54,7 @@ export default function Login(){
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn">Login</button>
+        <button type="submit" className='login-button'>Login</button>
       </form>
     </div>
   )

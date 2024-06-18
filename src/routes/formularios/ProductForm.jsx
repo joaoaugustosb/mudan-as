@@ -56,7 +56,7 @@ export default function ProductForm(){
   }
 
   return (
-    <div className="container">
+    <div className="form-container">
       <h2 className="form-title">Cadastrar Veículo</h2>
       <form onSubmit={saveProduct}>
         <label htmlFor="type">Tipo de Veículo:</label>

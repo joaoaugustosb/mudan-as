@@ -33,8 +33,8 @@ export default function Servico(){
   }
 
   return (
-    <div className="container">
-      <button><Link to="/app/cadastrar-servico" className="cadastrar-button">Cadastrar Serviço</Link></button>
+    <div className="table-container">
+      <button className="cadastrar-button"><Link to="/app/cadastrar-servico" className="cadastrar-button-link">Cadastrar Serviço</Link></button>
       <h2 className="table-title">Cadastro de Serviços</h2>
       <table>
         <thead>
@@ -59,7 +59,7 @@ export default function Servico(){
               <td>{service.value}</td>
               <td className="actions">
                 <button className="table-edit"><Link to={`/app/editar-servico/${service.id}`} className="table-edit-link">Editar</Link></button>
-                <button onClick={() => deleteService(service.id)} className="table-delete">Excluir</button>
+                <button className="table-delete" onClick={() => deleteService(service.id)}>Excluir</button>
               </td>
             </tr>
           ))}

@@ -56,7 +56,7 @@ export default function UserForm(){
   }
 
   return (
-    <div className="container">
+    <div className="form-container">
       <h2 className="form-title">Cadastrar Usuário</h2>
       <form onSubmit={saveUser}>
         <label htmlFor="username">Usuário:</label>

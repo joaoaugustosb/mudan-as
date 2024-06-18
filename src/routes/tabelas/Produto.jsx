@@ -33,8 +33,8 @@ export default function Produto(){
   }
 
   return (
-    <div className="container">
-      <button><Link to="/app/cadastrar-produto" className="cadastrar-button">Cadastrar Veículo</Link></button>
+    <div className="table-container">
+      <button className="cadastrar-button"><Link to="/app/cadastrar-produto" className="cadastrar-button-link">Cadastrar Veículo</Link></button>
       <h2 className="table-title">Cadastro de Veículos</h2>
       <table>
         <thead>

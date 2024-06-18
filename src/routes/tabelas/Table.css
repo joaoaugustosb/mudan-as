@@ -1,4 +1,4 @@
-.container {
+.table-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,26 +6,26 @@
     border: none;
 }
 
-button {
+.cadastrar-button {
     background-color: darkblue;
     border: none;
     border-radius: 5px;
     font-size: 12px;
 }
 
-button:hover {
+.cadastrar-button:hover {
     background-color: #0056b3;
 }
 
-.cadastrar-button {
+.cadastrar-button-link {
     color: white;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-decoration: none;
 }
 
 .table-title {
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -46,22 +46,9 @@ th {
     color: white;
 }
 
-.actions {
-    display: flex;
-    justify-content: space-around;
-}
-
-.table-edit { 
-    background-color: darkblue;
+.table-edit, .table-delete {
     color: white;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
-.table-delete {
     background-color: darkblue;
-    color: white;
-    border-radius: 5px;
     font-size: 12px;
 }
 
@@ -70,10 +57,18 @@ th {
     text-decoration: none;
 }
 
-.table-edit:hover { 
-    background-color: darkblue;
+.actions {
+    display: flex;
+    gap: 10px;
 }
-
-.table-delete:hover {
-    background-color: darkblue;
+  
+.actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.actions button:hover {
+    background-color: #0056b3;
 }

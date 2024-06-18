@@ -20,6 +20,11 @@ export default function NavBar(){
           Serviços
         </NavLink>
       </span>
+      <span className="nav-item logout">
+        <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+          Logout
+        </NavLink>
+      </span>
     </div>
   )
 }

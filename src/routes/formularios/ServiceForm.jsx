@@ -56,7 +56,7 @@ export default function ServiceForm(){
   }
 
   return (
-    <div className="container">
+    <div className="form-container">
       <h2 className="form-title">Cadastrar Serviço</h2>
       <form onSubmit={saveService}>
         <label htmlFor="type">Tipo de Serviço:</label>
