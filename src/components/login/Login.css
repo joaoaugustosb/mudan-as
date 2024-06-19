@@ -30,7 +30,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
 }
-  
+
 .form-group input {
     width: 100%;
     border: 1px solid #ccc;
@@ -38,6 +38,21 @@ body {
     box-sizing: border-box;
 }
   
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    bottom: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: darkblue;
+    font-size: 14px;
+}
+
 .login-button {
     width: 100%;
     padding: 0.75rem;

@@ -9,16 +9,19 @@ import UserForm from './routes/formularios/UserForm.jsx'
 import Servico from './routes/tabelas/Serviço.jsx'
 import ServiceForm from './routes/formularios/ServiceForm.jsx'
 import Login from './components/login/Login.jsx'
+import ErrorPage from './routes/ErrorPage.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Login />,
+    errorElement: <ErrorPage />
   },
   {
     path: '/app',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/app/produtos',
